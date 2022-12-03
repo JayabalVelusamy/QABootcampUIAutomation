@@ -58,7 +58,7 @@ public class RegisterUserTest_FirstTest {
         assertEquals(driver.findElement(By.xpath("//h1")).getText(),"Your Basket");
 
         assertEquals(driver.findElement(By.xpath("//mat-cell[@class='mat-cell cdk-cell cdk-column-product mat-column-product ng-star-inserted']")).getText(),selectedProduct);
-
+//
         driver.close();
         driver.quit();
     }
