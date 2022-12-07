@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-public class RegisterUserTest_FirstTest {
+public class SearchAndAddToCart_FirstTest {
 
     @Test
     public void searchAndAddToCartTest() throws InterruptedException {
@@ -30,6 +30,7 @@ public class RegisterUserTest_FirstTest {
         driver.findElement(By.id("navbarLoginButton")).click();
 
         assertEquals(driver.findElement(By.xpath("//h1")).getText(),"Login");
+
         driver.findElement(By.id("email")).sendKeys("jaya@sample.com");
         driver.findElement(By.cssSelector("#password")).sendKeys("jaya@sample.com");
         driver.findElement(By.xpath("//button[@type='submit']")).click();
@@ -46,12 +47,12 @@ public class RegisterUserTest_FirstTest {
                 .isDisplayed());
         String selectedProduct=driver.findElement(By.xpath("(//div[contains(text(),'Apple')])[1]")).getText();
 
-        driver.findElement(By.xpath("(//div[contains(text(),'Apple')])[1]")).click();
+     //   driver.findElement(By.xpath("(//div[contains(text(),'Apple')])[1]")).click();
 
-        driver.findElement(By.xpath("//span[text()='Reviews']")).click();
-        driver.findElement(By.xpath("//span[text()=' Close']")).click();
+      //  driver.findElement(By.xpath("//span[text()='Reviews']")).click();
+      //  driver.findElement(By.xpath("//span[text()=' Close']")).click();
 
-        driver.findElement(By.xpath("//span[text()='Add to Basket']")).click();
+        driver.findElement(By.xpath("(//span[text()='Add to Basket'])[1]")).click();
 
         driver.findElement(By.xpath("//span[text()=' Your Basket']")).click();
 

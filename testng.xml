@@ -3,7 +3,7 @@
 <suite name="SearchProduct">
     <test thread-count="1" verbose="2" preserve-order="true" name="SearchProduct">
         <classes>
-            <class name="tests.SearchFeatureTestsWithPOM">
+            <class name="tests.SearchAndAddToCart_FirstTest">
             </class>
         </classes>
     </test>
