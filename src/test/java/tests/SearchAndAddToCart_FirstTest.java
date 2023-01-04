@@ -1,9 +1,9 @@
 package tests;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
@@ -15,13 +15,13 @@ import static org.testng.Assert.assertTrue;
 public class SearchAndAddToCart_FirstTest {
 
     @Test
-    public void searchAndAddToCartTest() throws InterruptedException {
-        WebDriver driver = new ChromeDriver();
+    public void searchAndAddToCartTest(){
+
+        WebDriver driver = WebDriverManager.chromedriver().create();
         driver.get("https://juice-shop.herokuapp.com/#/");
 
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.manage().window().maximize();
-
 
         driver.findElement(By.xpath("//button[@color='primary']")).click();
         driver.findElement(By.linkText("Me want it!")).click();
@@ -45,12 +45,6 @@ public class SearchAndAddToCart_FirstTest {
 
         assertTrue(driver.findElement(By.xpath("//div[contains(text(),'Apple')]"))
                 .isDisplayed());
-        String selectedProduct=driver.findElement(By.xpath("(//div[contains(text(),'Apple')])[1]")).getText();
-
-     //   driver.findElement(By.xpath("(//div[contains(text(),'Apple')])[1]")).click();
-
-      //  driver.findElement(By.xpath("//span[text()='Reviews']")).click();
-      //  driver.findElement(By.xpath("//span[text()=' Close']")).click();
 
         driver.findElement(By.xpath("(//span[text()='Add to Basket'])[1]")).click();
 
@@ -58,8 +52,6 @@ public class SearchAndAddToCart_FirstTest {
 
         assertEquals(driver.findElement(By.xpath("//h1")).getText(),"Your Basket");
 
-  //      assertEquals(driver.findElement(By.xpath("//mat-cell[@class='mat-cell cdk-cell cdk-column-product mat-column-product ng-star-inserted']")).getText(),selectedProduct);
-//
         driver.close();
         driver.quit();
     }

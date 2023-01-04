@@ -1,5 +1,6 @@
 package tests;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -14,9 +15,14 @@ public class BaseTest {
     @BeforeMethod
     public void SetUp() {
         driver = DriverManager.getDriver();
-        driver.get("http://spree-vapasi.herokuapp.com/");
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        driver.get("https://juice-shop.herokuapp.com/#/");
+        driver.findElement(By.xpath("//button[@color='primary']")).click();
+        driver.findElement(By.linkText("Me want it!")).click();
+        driver.findElement(By.id("navbarAccount")).click();
+        driver.findElement(By.cssSelector("#navbarLoginButton")).click();
+
     }
 
     @AfterMethod
